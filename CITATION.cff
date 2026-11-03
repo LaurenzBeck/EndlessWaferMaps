@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "📝 if you use this software, please cite the associated paper."
+message: "📝 if you use this software or our datasets, please cite the associated paper."
 title: "EndlessWaferMaps"
 type: software
 authors:
