@@ -1,0 +1,16 @@
+# @package _global_
+defaults:
+  - override /data: i-100k
+  - _self_
+
+epochs: 100
+
+experiment_name: static_complexity
+comment: ${data.name}_f${data.stream.data_fraction}_s${seed}
+
+hydra:
+  sweeper:
+    params:
+      data: i-100k,ii-100k,iii-100k,iv-100k
+      seed: 42,43,44
+      data.stream.data_fraction: 0.0025,0.005,0.0075,0.01,0.025,0.05,0.075,0.1,0.25,0.5,0.75,1.0

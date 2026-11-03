@@ -1,0 +1,18 @@
+name: remind
+num_exemplars_per_class: 100
+replay_batch_size: 64
+seed: ${seed}
+use_quantization: false
+num_groups: 4
+nbits: 8
+mixup_alpha: 0.1
+obj:
+  _target_: experiments.methods.REMIND
+  name: ${..name}
+  num_exemplars_per_class: ${..num_exemplars_per_class}
+  replay_batch_size: ${..replay_batch_size}
+  seed: ${..seed}
+  use_quantization: ${..use_quantization}
+  num_groups: ${..num_groups}
+  nbits: ${..nbits}
+  mixup_alpha: ${..mixup_alpha}

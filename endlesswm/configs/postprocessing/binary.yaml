@@ -1,0 +1,13 @@
+# Binary Postprocessing
+# =============================
+# Convert float values to binary (0/1) via thresholding.
+# Used for binary classification benchmarks.
+
+name: "binary"
+description: "Threshold float values to binary (0/1)"
+
+mode: "binary"
+
+params:
+  threshold: 0.5    # Values > threshold become 1, others become 0
+  # NaN regions remain NaN (wafer mask preserved)

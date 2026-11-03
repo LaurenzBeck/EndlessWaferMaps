@@ -1,0 +1,13 @@
+name: ReduceLROnPlateau
+step_mode: epoch
+requires_total_steps: false
+obj:
+  _target_: torch.optim.lr_scheduler.ReduceLROnPlateau
+  mode: min
+  factor: 0.5
+  patience: 8
+  threshold: 0.001
+  threshold_mode: rel
+  cooldown: 2
+  min_lr: 0.000001
+  eps: 0.00000001

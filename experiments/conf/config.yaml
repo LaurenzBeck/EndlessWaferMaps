@@ -1,0 +1,36 @@
+defaults:
+  - _self_
+  - model: resnet18
+  - data: iii-100k
+  - augmentation: rotate
+  - loss: bce
+  - optimizer: adam
+  - scheduler: onecycle
+  - method: finetuning
+  - experiment: static_complexity
+  - override hydra/hydra_logging: disabled
+  - override hydra/job_logging: disabled
+
+# 💾 data
+data_path: ${hydra:runtime.cwd}/experiments/data/
+
+# 🏃 run information and logic
+epochs: 100
+seed: 42
+
+# toggles and additional analyses/plots
+include_classwise_metrics: true
+save_confusion_artifacts: true
+save_model: true
+
+experiment_name: static_complexity
+comment: run
+
+hydra:
+  job:
+    chdir: True
+  run:
+    dir: experiments/reports/${experiment_name}/
+  sweep:
+    dir: experiments/reports/${experiment_name}
+    subdir: ./

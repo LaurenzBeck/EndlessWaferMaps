@@ -1,0 +1,11 @@
+model:
+  _target_: timm.create_model
+  # Standard torchvision-style ResNet-18 backbone from timm.
+  model_name: resnet18
+  # Keep scratch training explicit; fine-tuning runs can override this to true.
+  pretrained: false
+  # Backbone-wide dropout inside the timm model.
+  drop_rate: 0.1
+  num_classes: ${data.num_classes}
+  in_chans: ${data.in_channels}
+name: ResNet-18

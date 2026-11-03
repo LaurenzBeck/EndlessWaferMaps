@@ -1,0 +1,7 @@
+*.gif
+*.png
+*.svg
+*.dot
+*.eps
+figs/
+__marimo__/

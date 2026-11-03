@@ -1,0 +1,5 @@
+name: "single_task_100k"
+description: "Static single-task stream of 100k samples (used by ablations that do not need a task sequence)"
+num_tasks: 1
+num_samples_per_task: 100000
+num_validation_samples: 3000

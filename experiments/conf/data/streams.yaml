@@ -1,0 +1,16 @@
+# @package _global_
+defaults:
+  - /data/endlesswm@data
+  - _self_
+
+data:
+  name: i-e
+  dataset_seed: 1
+  stream:
+    train_dataset: experiments/data/published/${data.name}-${data.dataset_seed}.hdf5
+
+hydra:
+  sweeper:
+    params:
+      data.name: i-e,i-r,ii-e,ii-r,iii-e,iii-r,iv-e,iv-r
+      data.dataset_seed: 1,2,3

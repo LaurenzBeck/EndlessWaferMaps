@@ -1,0 +1,24 @@
+description: "Published regime-switching stream IV, seed 3"
+output_root: experiments/data/published
+stem: IV
+branches: IV
+postprocessing: continuous
+shapes: fixed
+stream_size: large
+seed: 3
+priors:
+  cardinality: low_long_tailed
+  class: long_tailed
+drifts:
+  covariate: teleporting_brownian
+  concept: teleporting_brownian
+  prior:
+    cardinality_schedule: fixed
+    class_schedule: resampled_subset
+    params:
+      class:
+        active_count: 3
+        resample_every_tasks: 1
+fraction: 0.1
+sigma: 0.08
+k: 5

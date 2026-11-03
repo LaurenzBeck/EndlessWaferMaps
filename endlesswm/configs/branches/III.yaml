@@ -1,0 +1,106 @@
+name: "III"
+description: "Multi-label patterns with co-occurrence matrix"
+
+# Pattern mode
+mode: "multi_label"  # Options: single_label, multi_label
+
+# Pattern classes to include
+classes:
+  - scratch
+  - center_spot
+  - edge_spot
+  - center_donut
+  - border_donut
+  - edge_ring
+  - crescent
+  - reticle
+
+# Co-occurrence matrix (8x8)
+# 1 = patterns CAN co-occur, 0 = patterns CANNOT co-occur
+# Diagonal is always 0 (pattern can't co-occur with itself within same sample)
+co_occurrence:
+  - [0, 1, 1, 1, 1, 1, 1, 1]  # scratch can co-occur with all others
+  - [1, 0, 1, 0, 1, 1, 1, 1]  # center_spot cannot co-occur with center_donut
+  - [1, 1, 0, 1, 0, 0, 0, 1]  # edge_spot cannot co-occur with border_donut
+  - [1, 0, 1, 0, 0, 1, 1, 1]  # center_donut cannot co-occur with center_spot/border_donut
+  - [1, 1, 0, 0, 0, 0, 1, 1]  # border_donut has more restrictions
+  - [1, 1, 0, 1, 0, 0, 0, 1]  # edge_ring cannot co-occur with border_donut
+  - [1, 1, 0, 1, 1, 0, 0, 1]  # crescent can co-occur with most
+  - [1, 1, 1, 1, 1, 1, 1, 0]  # reticle can co-occur with all
+
+# Pattern parameters (same structure as background params)
+params:
+  scratch:
+    width_r: [0.02, 0.08]        # Line width as fraction of min(H,W)
+    curved_c: [true, false]       # Curved or straight line
+    length_r: [0.15, 0.8]          # Line length as fraction of min(H,W)
+    polarity_c: ["+", "-"] # Polarity: + (additive), - (subtractive), NaN (mask out)
+    value_r: [0.8, 1.2]
+
+  center_spot:
+    distance_r: [0.0, 0.3]       # Distance from center (0=exact center, 1=edge)
+    extent_r: [0.1, 0.6]          # Spot diameter as fraction of min(H,W)
+    polarity_c: ["+", "-"]
+    value_r: [0.8, 1.2]
+
+  edge_spot:
+    distance_r: [0.75, 0.98]       # Distance from center (close to edge)
+    extent_r: [0.1, 0.45]
+    polarity_c: ["+", "-"]
+    value_r: [0.8, 1.2]
+
+  center_donut:
+    diameter_r: [0.25, 0.55]        # Ring diameter as fraction of min(H,W)
+    width_r: [0.015, 0.1]         # Ring thickness
+    distance_r: [0.0, 0.15]        # Displacement from center
+    polarity_c: ["+", "-"]
+    value_r: [0.8, 1.2]
+
+  border_donut:
+    diameter_r: [0.8, 1.0]        # Large ring near border
+    width_r: [0.05, 0.2]
+    distance_r: [0.0, 0.005]
+    polarity_c: ["+", "-"]
+    value_r: [0.8, 1.2]
+
+  edge_ring:
+    diameter_r: [0.95, 1.0]       # Very thin ring at edge
+    width_r: [0.01, 0.1]
+    distance: 0.0                 # Fixed at center (no displacement)
+    polarity_c: ["+", "-"]
+    value_r: [0.8, 1.2]
+
+  crescent:
+    max_width_r: [0.015, 0.4]     # Maximum width of crescent
+    angle_r: [0.0, 6.283185307]   # Rotation angle
+    polarity_c: ["+", "-"]
+    value_r: [0.8, 1.2]
+
+  reticle:
+    width_r: [0.10, 0.45]         # Rectangle width as fraction of wafer width
+    aspect_ratio_r: [0.7, 1.3]  # Height/width ratio
+    polarity_c: ["+", "-"]
+    value_r: [0.8, 1.2]
+
+  # Corruption parameters (applied to patterns as transformations)
+  pattern_noise:
+    strength_r: [0.0, 0.6]        # Noise strength
+
+  linear_radial_gradient:
+    center_val_r: [0.75, 1.0]     # Radial value at center for crescent path
+    outer_val_r: [1.0, 1.25]      # Radial value at edge for crescent path
+
+  local_pixel_shuffle:
+    fraction_r: [0.0, 0.5]        # Fraction of pixels to shuffle
+    radius_r: [0.01, 0.08]         # Shuffle radius as fraction of image
+
+  swirl:
+    strength_r: [0.0, 1.2]        # Swirl strength
+
+  smooth_normalize:
+    sigma_r: [0.001, 2.0]         # Gaussian blur sigma
+
+  slant:
+    scale_r: [0.975, 1.025]       # Scale factor
+    rotation_r: [-0.1, 0.1]       # Rotation angle in radians
+    shear_r: [-0.05, 0.05]        # Shear angle in radians

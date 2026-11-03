@@ -1,0 +1,15 @@
+# MixedWM38 Postprocessing
+# ========================
+# Binary thresholding with the MixedWM38 value pair: 1 = pass, 2 = fail.
+# NaN outside the wafer is preserved by `binary_threshold`; training-side
+# `fill_nan(0)` then yields the canonical MixedWM38 {0, 1, 2} encoding.
+
+name: "mixedwm38"
+description: "Binary threshold with MixedWM38 value pair {1, 2} and preserved NaN wafer mask"
+
+mode: "binary"
+
+params:
+  threshold: 0.5
+  low_value: 1
+  high_value: 2

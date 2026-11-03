@@ -1,0 +1,12 @@
+name: "edge_bias"
+description: "Mild bias towards edge-related classes"
+
+probabilities:
+  - 0.10
+  - 0.08
+  - 0.16
+  - 0.08
+  - 0.16
+  - 0.16
+  - 0.13
+  - 0.13

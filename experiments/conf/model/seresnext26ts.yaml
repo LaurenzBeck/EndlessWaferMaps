@@ -1,0 +1,7 @@
+model:
+  _target_: timm.create_model
+  model_name: seresnext26ts
+  drop_rate: 0.1
+  num_classes: ${data.num_classes}
+  in_chans: ${data.in_channels}
+name: SE-ResNeXt-26ts

@@ -1,0 +1,8 @@
+name: pass
+prototype_augmentation_strength: 10.0
+distillation_strength: 10.0
+obj:
+  _target_: experiments.methods.PASS
+  name: ${..name}
+  prototype_augmentation_strength: ${..prototype_augmentation_strength}
+  distillation_strength: ${..distillation_strength}

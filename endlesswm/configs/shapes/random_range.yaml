@@ -1,0 +1,17 @@
+# Random Range Shape Schedule
+# ============================
+# Randomly sample shapes within specified ranges for each task.
+# Creates diversity in wafer map sizes across the dataset.
+
+name: "random_range"
+description: "Random shape sampling within width and aspect ratio ranges"
+
+# Shape strategy
+strategy: "random_range"  # Options: random_range, fixed, scheduled, expanding
+
+# Strategy parameters
+params:
+  width_range: [40, 70]        # Min/max width in pixels
+  aspect_ratio: [0.85, 1.15]    # Height = width * aspect_ratio
+  order: "random"              # Options: random, ascending, descending
+  # 80% of samples have random aspect ratio, 20% are square (hardcoded in factory)

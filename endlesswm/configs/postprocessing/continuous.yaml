@@ -1,0 +1,13 @@
+# Continuous Postprocessing
+# =========================
+# No postprocessing - float values with NaN masking (default).
+# Used for most evaluation datasets.
+
+name: "continuous"
+description: "Float values with NaN masking (no postprocessing)"
+
+# Postprocessing mode
+mode: "continuous"  # Options: continuous, binary, normalized
+
+# No parameters needed for continuous mode
+params: {}

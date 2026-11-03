@@ -1,0 +1,53 @@
+name: "IV"
+description: "Complete background pipeline with all 7 transformations and the biggest parameter ranges"
+
+# Node sequence (applied in order)
+# Each node is applied sequentially to build up the background signal
+nodes:
+  - init_output_dictionary  # Initialize the sample dictionary
+  - beta_weibull            # Base noise distribution (mixture of Beta and Weibull)
+  - pink_noise              # Add correlated noise (1/f spectrum)
+  - gaussian_filter         # Smooth the signal
+  - impulse_noise           # Add random spike noise
+  - linear_gradient         # Multiply by directional gradient
+  - linear_radial_gradient  # Multiply by radial gradient
+  - affine                  # Apply affine transformation
+
+params:
+  # Beta-Weibull noise (base distribution)
+  beta_weibull:
+    alpha_r: [0.25, 1.75]          # Alpha parameter for Beta distribution
+    beta_r: [0.25, 1.75]           # Beta parameter for Beta distribution
+    weight_beta_r: [0.0, 0.5]    # Weight of Beta component
+    shape_weibull_r: [1.5, 3.0]  # Shape parameter for Weibull distribution
+    weight_weibull_r: [0.0, 0.5] # Weight of Weibull component
+
+  # Pink noise (1/f noise, adds spatial correlation)
+  pink_noise:
+    roughness_r: [0.5, 2.0]      # Roughness parameter (higher = more high-freq content)
+    max_value_r: [0.001, 0.8]    # Maximum amplitude of noise
+
+  # Gaussian filter (spatial smoothing)
+  gaussian_filter:
+    sigma_r: [0.2, 1.2]          # Gaussian blur sigma (larger = more blur)
+
+  # Impulse noise (random spikes)
+  impulse_noise:
+    fraction_log10_r: [-3.0, -1.0]  # Log10 fraction of pixels affected (-3=0.1%, -1=10%)
+    low_r: [-0.75, 0.0]           # Minimum spike value (negative)
+    high_r: [0.0, 0.75]           # Maximum spike value (positive)
+
+  # Linear gradient (directional intensity variation)
+  linear_gradient:
+    angle_r: [0.0, 6.283185307]  # Direction angle in radians (0 to 2π)
+    slant_fraction_r: [0.0, 0.25]  # Symmetric gradient half-width around 1.0
+
+  # Linear radial gradient (center-to-edge intensity variation)
+  linear_radial_gradient:
+    center_val_r: [0.75, 1.0]     # Value at center
+    outer_val_r: [1.0, 1.25]      # Value at outer edge
+
+  # Affine transformation (geometric distortion)
+  affine:
+    offset_r: [-0.3, 0.3]        # Translation offset
+    scaling_r: [0.8, 1.2]        # Scaling factor

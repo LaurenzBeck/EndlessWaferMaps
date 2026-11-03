@@ -1,0 +1,44 @@
+name: "II"
+description: "Full stem with noise knobs narrowed to a moderate-noise band"
+
+nodes:
+  - init_output_dictionary
+  - beta_weibull
+  - pink_noise
+  - gaussian_filter
+  - impulse_noise
+  - linear_gradient
+  - linear_radial_gradient
+  - affine
+
+params:
+  beta_weibull:
+    alpha_r: [0.5, 1.5]
+    beta_r: [0.5, 1.5]
+    weight_beta_r: [0.0, 0.25]
+    shape_weibull_r: [1.5, 3.0]
+    weight_weibull_r: [0.0, 0.25]
+
+  pink_noise:
+    roughness_r: [0.6, 1.8]
+    max_value_r: [0.1, 0.5]
+
+  gaussian_filter:
+    sigma_r: [0.2, 1.2]
+
+  impulse_noise:
+    fraction_log10_r: [-3.5, -2.0]
+    low_r: [-0.25, 0.0]
+    high_r: [0.0, 0.25]
+
+  linear_gradient:
+    angle_r: [0.0, 6.283185307]
+    slant_fraction_r: [0.0, 0.15]
+
+  linear_radial_gradient:
+    center_val_r: [0.85, 1.0]
+    outer_val_r: [1.0, 1.15]
+
+  affine:
+    offset_r: [-0.1, 0.1]
+    scaling_r: [0.85, 1.15]

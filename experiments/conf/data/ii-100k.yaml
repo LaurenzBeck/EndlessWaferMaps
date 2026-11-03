@@ -1,0 +1,8 @@
+defaults:
+  - endlesswm_single_task
+  - _self_
+
+name: II
+
+stream:
+  train_dataset: experiments/data/published/ii.hdf5

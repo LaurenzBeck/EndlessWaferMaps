@@ -1,0 +1,9 @@
+model:
+  _target_: timm.create_model
+  # TResNet-M is the stronger default classification backbone here.
+  model_name: tresnet_m
+  # Backbone-wide dropout inside the timm model.
+  drop_rate: 0.1
+  num_classes: ${data.num_classes}
+  in_chans: ${data.in_channels}
+name: TResNet M

@@ -1,0 +1,4 @@
+name: finetuning
+obj:
+  _target_: experiments.methods.Finetuning
+  name: ${..name}

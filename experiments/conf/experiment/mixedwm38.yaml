@@ -1,0 +1,22 @@
+# @package _global_
+defaults:
+  - override /data: mixedwm38
+  - _self_
+
+epochs: 100
+
+experiment_name: mixedwm38
+comment: ${data.name}_f${data.stream.data_fraction}_s${seed}
+
+
+# Sweep the real MixedWM38 dataset alongside its EndlessWM-generated mimic
+# (`endlesswm-mixedwm38`) so the absolute sample-count axis is comparable.
+# data.stream.data_fraction values are chosen so that the post-split train pool
+# (0.8 * 38015 = 30412 samples) yields ~250, 500, 750, 1k, 2.5k, 5k, 7.5k, 10k, 25k, ~30k train
+# samples, matching the absolute sample counts swept on the topology datasets.
+hydra:
+  sweeper:
+    params:
+      data: mixedwm38,endlesswm-mixedwm38
+      seed: 42,43,44
+      data.stream.data_fraction: 0.008,0.016,0.025,0.033,0.082,0.164,0.247,0.329,0.822,1.0

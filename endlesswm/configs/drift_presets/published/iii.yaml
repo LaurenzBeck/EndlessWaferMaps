@@ -1,0 +1,16 @@
+description: "Published static distribution III dataset"
+output_root: experiments/data/published
+stem: II
+branches: III
+postprocessing: continuous
+shapes: fixed
+stream_size: single_task_100k
+num_validation_samples: null
+seed: 3
+priors:
+  cardinality: mild_long_tailed
+  class: uniform
+drifts:
+  covariate: fixed_full
+  concept: fixed_full
+  prior: fixed

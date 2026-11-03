@@ -1,0 +1,14 @@
+# @package _global_
+defaults:
+  - override /data: streams
+  - _self_
+
+epochs: 100
+
+experiment_name: streams
+comment: ${data.name}_${method.name}_${seed}
+
+hydra:
+  sweeper:
+    params:
+      method: finetuning,joint,replay

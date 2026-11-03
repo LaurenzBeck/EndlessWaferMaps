@@ -1,0 +1,5 @@
+name: Two-Way
+obj:
+  _target_: experiments.losses.two_way_multilabel_loss.TwoWayLoss
+  Tp: 4.0
+  Tn: 1.0

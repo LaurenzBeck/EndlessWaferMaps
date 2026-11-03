@@ -1,0 +1,9 @@
+# @package _global_
+defaults:
+  - override /data: covariate_vs_concept
+  - _self_
+
+epochs: 100
+
+experiment_name: covariate_vs_concept
+comment: ${data.name}_s${data.dataset_seed}

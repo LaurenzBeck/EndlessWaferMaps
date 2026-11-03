@@ -1,0 +1,13 @@
+# Random Range Shape Schedule (Ascending)
+# =======================================
+# Randomly sample shapes within specified ranges, then sort tasks by area.
+
+name: "random_range_ascending"
+description: "Random shape sampling within width and aspect ratio ranges, sorted by ascending area"
+
+strategy: "random_range"
+
+params:
+  width_range: [40, 70]
+  aspect_ratio: [0.85, 1.15]
+  order: "ascending"

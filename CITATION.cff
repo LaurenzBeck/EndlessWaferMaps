@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "📝 if you use this software, please cite the associated paper."
+title: "EndlessWaferMaps"
+type: software
+authors:
+  - family-names: "Farthofer"
+    given-names: "Laurenz A."
+  - family-names: "Masana"
+    given-names: "Marc"
+repository-code: "https://github.com/LaurenzBeck/EndlessWaferMaps"
+license: MIT
+
+preferred-citation:
+  type: conference-paper
+  title: "Endless Wafer Maps: Labeled Wafer Test Streams with Controllable Data Drifts and Signal-to-noise Ratio"
+  authors:
+    - family-names: "Farthofer"
+      given-names: "Laurenz A."
+    - family-names: "Masana"
+      given-names: "Marc"
+  collection-title: "Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)"
+  year: 2027
+  month: 1
+  publisher: "IEEE"
+  location:
+    name: "Disney Springs, Buena Vista, FL, USA"
+    city: "Buena Vista"
+    region: "FL"
+    country: "US"
+  conference:
+    name: "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)"
+    date-start: "2027-01-04"
+    date-end: "2027-01-08"

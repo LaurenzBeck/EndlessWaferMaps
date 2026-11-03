@@ -1,0 +1,12 @@
+name: "long_tailed"
+description: "Long-tailed class prior"
+
+probabilities:
+  - 0.34
+  - 0.22
+  - 0.14
+  - 0.10
+  - 0.08
+  - 0.06
+  - 0.04
+  - 0.02

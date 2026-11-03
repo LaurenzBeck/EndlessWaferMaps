@@ -1,0 +1,102 @@
+name: "II"
+description: "Multi-label branches with positive-only polarity and tight constant amplitude well above the binary threshold"
+
+mode: "multi_label"
+
+classes:
+  - scratch
+  - center_spot
+  - edge_spot
+  - center_donut
+  - border_donut
+  - edge_ring
+  - crescent
+  - reticle
+
+# Co-occurrence matrix (8x8)
+# 1 = patterns CAN co-occur, 0 = patterns CANNOT co-occur
+# Diagonal is always 0 (pattern can't co-occur with itself within same sample)
+co_occurrence:
+  - [0, 1, 1, 1, 1, 1, 1, 1]  # scratch can co-occur with all others
+  - [1, 0, 1, 0, 1, 1, 1, 1]  # center_spot cannot co-occur with center_donut
+  - [1, 1, 0, 1, 0, 0, 0, 1]  # edge_spot cannot co-occur with border_donut
+  - [1, 0, 1, 0, 0, 1, 1, 1]  # center_donut cannot co-occur with center_spot/border_donut
+  - [1, 1, 0, 0, 0, 0, 1, 1]  # border_donut has more restrictions
+  - [1, 1, 0, 1, 0, 0, 0, 1]  # edge_ring cannot co-occur with border_donut
+  - [1, 1, 0, 1, 1, 0, 0, 1]  # crescent can co-occur with most
+  - [1, 1, 1, 1, 1, 1, 1, 0]  # reticle can co-occur with all
+
+params:
+  scratch:
+    width_r: [0.03, 0.05]        # Line width as fraction of min(H,W)
+    curved_c: [false]       # Curved or straight line
+    length_r: [0.2, 0.6]          # Line length as fraction of min(H,W)
+    polarity_c: ["+"]
+    value_r: [0.8, 1.2]
+
+  center_spot:
+    distance_r: [0.0, 0.25]
+    extent_r: [0.1, 0.5]
+    polarity_c: ["+"]
+    value_r: [0.8, 1.2]
+
+  edge_spot:
+    distance_r: [0.8, 0.95]
+    extent_r: [0.1, 0.4]
+    polarity_c: ["+"]
+    value_r: [0.8, 1.2]
+
+  center_donut:
+    diameter_r: [0.3, 0.5]
+    width_r: [0.02, 0.08]
+    distance_r: [0.0, 0.1]
+    polarity_c: ["+"]
+    value_r: [0.8, 1.2]
+
+  border_donut:
+    diameter_r: [0.8, 1.0]
+    width_r: [0.05, 0.15]
+    distance_r: [0.0, 0.005]
+    polarity_c: ["+"]
+    value_r: [0.8, 1.2]
+
+  edge_ring:
+    diameter_r: [0.95, 1.0]
+    width_r: [0.01, 0.05]
+    distance: 0.0
+    polarity_c: ["+"]
+    value_r: [0.8, 1.2]
+
+  crescent:
+    max_width_r: [0.02, 0.35]
+    angle_r: [0.0, 6.283185307]
+    polarity_c: ["+"]
+    value_r: [0.8, 1.2]
+
+  reticle:
+    width_r: [0.15, 0.35]
+    aspect_ratio_r: [0.75, 1.25]
+    polarity_c: ["+"]
+    value_r: [0.8, 1.2]
+
+  pattern_noise:
+    strength_r: [0.0, 0.1]
+
+  linear_radial_gradient:
+    center_val_r: [0.85, 1.0]
+    outer_val_r: [1.0, 1.15]
+
+  local_pixel_shuffle:
+    fraction_r: [0.0, 0.4]
+    radius_r: [0.01, 0.05]
+
+  swirl:
+    strength_r: [0.0, 0.6]
+
+  smooth_normalize:
+    sigma_r: [0.001, 1.0]
+
+  slant:
+    scale_r: [0.975, 1.025]
+    rotation_r: [-0.1, 0.1]
+    shear_r: [-0.05, 0.05]

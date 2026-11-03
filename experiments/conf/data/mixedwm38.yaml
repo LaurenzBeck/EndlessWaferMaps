@@ -1,0 +1,16 @@
+name: MixedWM38
+num_classes: 8
+in_channels: 1
+class_names: [Center, Donut, Edge_Loc, Edge_Ring, Loc, Near_Full, Scratch, Random]
+
+batch_size: 128
+num_workers: 2
+persistent_workers: true
+
+stream:
+  _target_: experiments.data.build_mixedwm38_single_task_stream
+  class_names: ${data.class_names}
+  dataset_path: experiments/data/downloaded/mixedwm38/Wafer_Map_Datasets.npz
+  train_val_split: 0.8
+  data_fraction: null
+  seed: ${seed}

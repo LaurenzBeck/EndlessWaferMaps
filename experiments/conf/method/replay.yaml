@@ -1,0 +1,8 @@
+name: replay
+num_exemplars_per_class: 100
+seed: ${seed}
+obj:
+  _target_: experiments.methods.Replay
+  name: ${..name}
+  num_exemplars_per_class: ${..num_exemplars_per_class}
+  seed: ${..seed}

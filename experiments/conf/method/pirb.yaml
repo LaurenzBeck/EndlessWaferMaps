@@ -1,0 +1,12 @@
+name: pirb
+regularization_strength: 0.1
+damping: 0.1
+num_exemplars_per_class: 100
+seed: ${seed}
+obj:
+  _target_: experiments.methods.PathIntegralReplay
+  name: ${..name}
+  regularization_strength: ${..regularization_strength}
+  damping: ${..damping}
+  num_exemplars_per_class: ${..num_exemplars_per_class}
+  seed: ${..seed}

@@ -1,0 +1,23 @@
+name: endlesswm
+num_classes: 8
+in_channels: 1
+class_names: [scratch, center_spot, edge_spot, center_donut, border_donut, edge_ring, crescent, reticle]
+
+batch_size: 128
+num_workers: 0
+persistent_workers: false
+
+stream:
+  _target_: experiments.data.build_endlesswm_stream
+  train_dataset: ???
+  class_names: ${data.class_names}
+  use_val_dataset: true
+  image_size: 52
+  train_val_split: null
+  data_fraction: null
+  seed: ${seed}
+  test_datasets:
+    I: experiments/data/published/i-t.hdf5
+    II: experiments/data/published/ii-t.hdf5
+    III: experiments/data/published/iii-t.hdf5
+    IV: experiments/data/published/iv-t.hdf5

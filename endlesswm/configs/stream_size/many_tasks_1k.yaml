@@ -1,0 +1,6 @@
+name: "many_tasks_1k"
+description: "Many-task stream of 1k samples (100 tasks x 10 samples) for fine-grained drift trajectories"
+num_tasks: 100
+num_samples_per_task: 10
+num_samples_first_task: 10
+num_validation_samples: 50

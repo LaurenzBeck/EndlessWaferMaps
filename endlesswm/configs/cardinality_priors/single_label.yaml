@@ -1,0 +1,12 @@
+name: "single_label"
+description: "Force exactly one active class per sample"
+
+distribution:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0

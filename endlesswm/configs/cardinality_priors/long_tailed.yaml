@@ -1,0 +1,12 @@
+name: "long_tailed"
+description: "Long-tailed cardinality distribution"
+
+distribution:
+  - 0.45
+  - 0.28
+  - 0.15
+  - 0.08
+  - 0.04
+  - 0.0
+  - 0.0
+  - 0.0

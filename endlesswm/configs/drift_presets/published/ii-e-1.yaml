@@ -1,0 +1,16 @@
+description: "Published exploration stream II, seed 1"
+output_root: experiments/data/published
+stem: II
+branches: II
+postprocessing: continuous
+shapes: fixed
+stream_size: small
+seed: 1
+priors:
+  cardinality: mild_long_tailed
+  class: uniform
+drifts:
+  covariate: anchor_sweep
+  concept: anchor_sweep
+  prior: fixed
+fraction: 0.1

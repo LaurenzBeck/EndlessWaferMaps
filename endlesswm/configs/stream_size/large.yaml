@@ -1,0 +1,6 @@
+name: "large"
+description: "Large stream size preset"
+num_tasks: 52
+num_samples_per_task: 200
+num_samples_first_task: 200
+num_validation_samples: 400

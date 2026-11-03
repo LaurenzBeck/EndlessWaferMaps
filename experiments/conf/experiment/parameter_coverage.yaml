@@ -1,0 +1,9 @@
+# @package _global_
+defaults:
+  - override /data: cvs
+  - _self_
+
+epochs: 100
+
+experiment_name: parameter_coverage
+comment: d${data.name}_f${data.param_fraction}_s${data.dataset_seed}

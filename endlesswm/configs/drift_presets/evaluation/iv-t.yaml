@@ -1,0 +1,23 @@
+# ℹ️ meta information
+description: "4th EWM distribution - different wafer map sizes"
+
+# 🌳 tree topology
+stem: IV
+branches: IV
+postprocessing: continuous
+shapes: fixed
+
+# 🌌 stream parameters
+stream_size: single_task_10k
+num_validation_samples: null
+seed: 104
+
+priors:
+  cardinality: uniform
+  class: uniform
+
+# ⚙️ parameter schedules
+drifts:
+  covariate: fixed_full
+  concept: fixed_full
+  prior: fixed

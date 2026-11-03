@@ -1,0 +1,17 @@
+# Empty / all zeros background configuration for ablation studies and baseline comparisons.
+# ===========================
+# Used to estimate how difficult it is to learn the pure pattern signals.
+
+name: "noop"
+description: "Empty background pipeline with only initialization and no transformations"
+
+# Node sequence (applied in order)
+# Each node is applied sequentially to build up the background signal
+nodes:
+  - init_output_dictionary  # Initialize the sample dictionary
+
+# Parameters for each node
+# Format: {node_name}: {param_name_r: [min, max]} for ranges
+#         {node_name}: {param_name_c: [opt1, opt2, ...]} for choices
+params: {}
+  # No parameters for the noop configuration since there are no transformations

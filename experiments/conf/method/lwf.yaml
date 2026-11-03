@@ -1,0 +1,8 @@
+name: lwf
+distillation_strength: 1.0
+temperature: 2.0
+obj:
+  _target_: experiments.methods.LwF
+  name: ${..name}
+  distillation_strength: ${..distillation_strength}
+  temperature: ${..temperature}

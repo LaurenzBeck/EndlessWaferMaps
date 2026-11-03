@@ -1,0 +1,8 @@
+name: ASL
+obj:
+  _target_: experiments.losses.asymmetric_loss.AsymmetricLoss
+  gamma_neg: 4
+  gamma_pos: 0
+  clip: 0.05
+  eps: 1e-8
+  disable_torch_grad_focal_loss: true

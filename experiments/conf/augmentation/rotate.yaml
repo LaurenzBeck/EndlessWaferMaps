@@ -1,0 +1,10 @@
+name: resize_rotate
+obj:
+  _target_: torchvision.transforms.v2.Compose
+  _args_:
+    - - _target_: torchvision.transforms.v2.RandomHorizontalFlip
+      - _target_: torchvision.transforms.v2.RandomApply
+        transforms:
+          - _target_: torchvision.transforms.v2.RandomRotation
+            degrees: 180
+      - _target_: experiments.augmentations.StandardizeEachSample

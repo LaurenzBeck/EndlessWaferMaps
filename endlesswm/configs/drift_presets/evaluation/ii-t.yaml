@@ -1,0 +1,23 @@
+# ℹ️ meta information
+description: "2nd EWM distribution - continuous with structured background"
+
+# 🌳 tree topology
+stem: II
+branches: II
+postprocessing: continuous
+shapes: fixed
+
+# 🌌 stream parameters
+stream_size: single_task_10k
+num_validation_samples: null
+seed: 102
+
+priors:
+  cardinality: uniform
+  class: uniform
+
+# ⚙️ parameter schedules
+drifts:
+  covariate: fixed_full
+  concept: fixed_full
+  prior: fixed

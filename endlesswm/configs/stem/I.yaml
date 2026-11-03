@@ -1,0 +1,24 @@
+name: "I"
+description: "Independent stem tuned for MixedWM38-style salt-and-pepper background with pattern-matched impulse intensity"
+
+nodes:
+  - init_output_dictionary
+  - beta_weibull
+  - gaussian_filter
+  - impulse_noise
+
+params:
+  beta_weibull:
+    alpha_r: [0.1, 0.5]          # Bulk concentrated near 0
+    beta_r: [1.5, 2.0]           # Beta skewed toward 0
+    weight_beta_r: [0.0, 0.05]   # Very low Beta contribution
+    shape_weibull_r: [1.5, 3.0]
+    weight_weibull_r: [0.0, 0.05]  # Very low Weibull contribution
+
+  gaussian_filter:
+    sigma_r: [0.1, 0.4]          # Mild smoothing, keeps impulses point-like
+
+  impulse_noise:
+    fraction_log10_r: [-2.2, -1.0]  # ~0.6%-5% of pixels (MixedWM38-like density)
+    low_r: [-0.6, 0.8]           # Tiny negative dip, suppressed by threshold
+    high_r: [0.8, 1.2]           # Matches pattern amplitude post-threshold

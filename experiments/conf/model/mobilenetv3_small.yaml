@@ -1,0 +1,8 @@
+model:
+  _target_: timm.create_model
+  # Tiny MobileNetV3-Small at 0.5x width (~0.6M params) as a lightweight baseline.
+  model_name: mobilenetv3_small_050
+  drop_rate: 0.1
+  num_classes: ${data.num_classes}
+  in_chans: ${data.in_channels}
+name: MobileNetV3-Small-050

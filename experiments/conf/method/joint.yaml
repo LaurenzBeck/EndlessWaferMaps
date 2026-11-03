@@ -1,0 +1,4 @@
+name: joint
+obj:
+  _target_: experiments.methods.Joint
+  name: ${..name}

@@ -1,0 +1,6 @@
+name: "many_tasks_100k"
+description: "Many-task stream of 100k samples (1000 tasks x 100 samples) for long-horizon drift trajectories"
+num_tasks: 1000
+num_samples_per_task: 100
+num_samples_first_task: 100
+num_validation_samples: 3

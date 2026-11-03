@@ -1,0 +1,5 @@
+name: "mixedwm38"
+description: "Single-task stream of 38015 samples matching the MixedWM38 dataset size"
+num_tasks: 1
+num_samples_per_task: 38015
+num_validation_samples: 10000

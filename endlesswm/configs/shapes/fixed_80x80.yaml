@@ -1,0 +1,12 @@
+# Fixed 80x80 Shape Schedule
+# ==========================
+# All samples use a fixed 80x80 shape.
+
+name: "fixed_80x80"
+description: "Fixed 80x80 shape for all samples"
+
+strategy: "fixed"
+
+params:
+  width: 80
+  height: 80

@@ -1,0 +1,14 @@
+model:
+  _target_: timm.create_model
+  # ViT-Tiny with an 8x8 patch grid at the 64x64 wafer-map resolution.
+  model_name: vit_tiny_patch16_224
+  pretrained: false
+  img_size: 64
+  patch_size: 8
+  dynamic_img_size: true
+  dynamic_img_pad: true
+  drop_rate: 0.1
+  drop_path_rate: 0.1
+  num_classes: ${data.num_classes}
+  in_chans: ${data.in_channels}
+name: ViT-Tiny

@@ -1,0 +1,92 @@
+# Single Label Pattern Configuration
+# ===================================
+# Only one pattern per sample (cardinality always 1).
+# Useful for single-class classification benchmarks.
+
+name: "single_label"
+description: "Single pattern per sample (no co-occurrence)"
+
+mode: "single_label"
+
+classes:
+  - scratch
+  - center_spot
+  - edge_spot
+  - center_donut
+  - border_donut
+  - edge_ring
+  - crescent
+  - reticle
+
+# For single_label, co_occurrence is ignored (no co-occurrence possible)
+co_occurrence: null
+
+# Pattern parameters (same as multi_label)
+params:
+  scratch:
+    width_r: [0.012, 0.08]
+    curved_c: [true, false]
+    length_r: [0.1, 0.8]
+    polarity_c: ["+", "-", "NaN"]
+    value_r: [0.5, 1.5]
+  center_spot:
+    distance_r: [0.0, 0.25]
+    extent_r: [0.1, 0.5]
+    polarity_c: ["+", "-", "NaN"]
+    value_r: [0.5, 1.5]
+  edge_spot:
+    distance_r: [0.8, 0.95]
+    extent_r: [0.1, 0.4]
+    polarity_c: ["+", "-", "NaN"]
+    value_r: [0.5, 1.5]
+  center_donut:
+    diameter_r: [0.3, 0.5]
+    width_r: [0.02, 0.08]
+    distance_r: [0.0, 0.1]
+    polarity_c: ["+", "-", "NaN"]
+    value_r: [0.5, 1.5]
+  border_donut:
+    diameter_r: [0.8, 1.0]
+    width_r: [0.05, 0.15]
+    distance_r: [0.0, 0.005]
+    polarity_c: ["+", "-", "NaN"]
+    value_r: [0.5, 1.5]
+  edge_ring:
+    diameter_r: [0.95, 1.0]
+    width_r: [0.01, 0.05]
+    distance: 0.0
+    polarity_c: ["+", "-", "NaN"]
+    value_r: [0.5, 1.5]
+  crescent:
+    max_width_r: [0.02, 0.35]
+    angle_r: [0.0, 6.283185307]
+    polarity_c: ["+", "-", "NaN"]
+    value_r: [0.5, 1.5]
+  reticle:
+    width_r: [0.15, 0.35]
+    aspect_ratio_r: [0.75, 1.25]
+    polarity_c: ["+", "-", "NaN"]
+    value_r: [0.5, 1.5]
+
+  # Corruption parameters (applied to patterns as transformations)
+  pattern_noise:
+    strength_r: [0.0, 0.5]
+
+  linear_radial_gradient:
+    center_val_r: [0.75, 1.0]
+    outer_val_r: [1.0, 1.25]
+
+  local_pixel_shuffle:
+    fraction_r: [0.0, 0.6]
+    radius_r: [0.01, 0.1]
+
+  swirl:
+    strength_r: [0.0, 1.2]
+
+  smooth_normalize:
+    sigma_r: [0.001, 2.0]
+
+  slant:
+    scale_r: [0.975, 1.025]
+    rotation_r: [-0.1, 0.1]
+    shear_r: [-0.05, 0.05]

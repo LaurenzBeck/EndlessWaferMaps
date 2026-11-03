@@ -1,0 +1,12 @@
+name: ewc
+regularization_strength: 5000.0
+fisher_merge_alpha: 0.5
+fisher_sampling: "true"
+fisher_num_samples: 32
+obj:
+  _target_: experiments.methods.EWC
+  name: ${..name}
+  regularization_strength: ${..regularization_strength}
+  fisher_merge_alpha: ${..fisher_merge_alpha}
+  fisher_sampling: ${..fisher_sampling}
+  fisher_num_samples: ${..fisher_num_samples}

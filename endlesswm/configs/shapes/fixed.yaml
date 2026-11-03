@@ -1,0 +1,13 @@
+# Fixed Shape Schedule
+# =====================
+# All samples use the same fixed shape (e.g., 52×52).
+# Useful for consistency in benchmarks or when shape doesn't vary.
+
+name: "fixed"
+description: "Fixed shape for all samples"
+
+strategy: "fixed"
+
+params:
+  width: 52         # Fixed width
+  height: 52        # Fixed height (if null, height = width)

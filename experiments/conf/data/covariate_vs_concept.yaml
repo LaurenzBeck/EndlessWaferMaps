@@ -1,0 +1,16 @@
+# @package _global_
+defaults:
+  - /data/endlesswm@data
+  - _self_
+
+data:
+  name: iii-as-covcon
+  dataset_seed: 1
+  stream:
+    train_dataset: experiments/data/generated/covariate_vs_concept/${data.name}_s${data.dataset_seed}.hdf5
+
+hydra:
+  sweeper:
+    params:
+      data.name: iii-as-covcon,iii-as-cov,iii-as-con
+      data.dataset_seed: 1,2,3

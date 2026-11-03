@@ -1,0 +1,16 @@
+description: "Published held-out distribution I dataset"
+output_root: experiments/data/published
+stem: I
+branches: I
+postprocessing: mixedwm38
+shapes: fixed
+stream_size: single_task_10k
+num_validation_samples: null
+seed: 101
+priors:
+  cardinality: uniform
+  class: uniform
+drifts:
+  covariate: fixed_full
+  concept: fixed_full
+  prior: fixed

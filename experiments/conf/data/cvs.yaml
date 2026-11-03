@@ -1,0 +1,18 @@
+# @package _global_
+defaults:
+  - /data/endlesswm_single_task@data
+  - _self_
+
+data:
+  name: i-1k
+  dataset_seed: 1
+  param_fraction: 0.1
+  stream:
+    train_dataset: experiments/data/generated/coverage_static/${data.name}_f${data.param_fraction}_s${data.dataset_seed}.hdf5
+
+hydra:
+  sweeper:
+    params:
+      data.name: i-1k,ii-1k,iii-1k,iv-1k
+      data.dataset_seed: 1,2,3
+      data.param_fraction: 0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0

@@ -1,0 +1,8 @@
+name: path_integral
+regularization_strength: 0.1
+damping: 0.1
+obj:
+  _target_: experiments.methods.PathIntegral
+  name: ${..name}
+  regularization_strength: ${..regularization_strength}
+  damping: ${..damping}

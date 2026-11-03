@@ -1,0 +1,16 @@
+description: "Published static distribution IV dataset"
+output_root: experiments/data/published
+stem: IV
+branches: IV
+postprocessing: continuous
+shapes: fixed
+stream_size: single_task_100k
+num_validation_samples: null
+seed: 4
+priors:
+  cardinality: mild_long_tailed
+  class: uniform
+drifts:
+  covariate: fixed_full
+  concept: fixed_full
+  prior: fixed

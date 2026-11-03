@@ -1,0 +1,6 @@
+name: OneCycleLR
+step_mode: step
+requires_total_steps: true
+obj:
+  _target_: torch.optim.lr_scheduler.OneCycleLR
+  max_lr: ${optimizer.obj.lr}

@@ -1,0 +1,12 @@
+name: "mild_long_tailed"
+description: "Mildly long-tailed cardinality distribution (recommended default)"
+
+distribution:
+  - 0.1
+  - 0.4
+  - 0.30
+  - 0.15
+  - 0.05
+  - 0.0
+  - 0.0
+  - 0.0

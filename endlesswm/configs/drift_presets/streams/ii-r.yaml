@@ -1,0 +1,32 @@
+# ℹ️ meta information
+description: regime-switching Brownian drift stream for the II distribution with limited class support
+
+# 🌳 tree topology
+stem: II
+branches: II
+postprocessing: continuous
+shapes: fixed
+
+# 🌌 stream parameters
+stream_size: large
+seed: (1,3)
+
+priors:
+  cardinality: low_long_tailed
+  class: long_tailed
+
+# ⚙️ parameter schedules
+drifts:
+  covariate: teleporting_brownian
+  concept: teleporting_brownian
+  prior:
+    cardinality_schedule: fixed
+    class_schedule: resampled_subset
+    params:
+      class:
+        active_count: 3
+        resample_every_tasks: 1
+
+fraction: 0.1
+sigma: 0.08
+k: 5 # steps of local shift. domain jumps happen every k+1 steps

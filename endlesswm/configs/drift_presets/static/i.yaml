@@ -1,0 +1,23 @@
+# ℹ️ meta information
+description: "1st EWM distribution - binary, close to MixedWM38"
+
+# 🌳 tree topology
+stem: I
+branches: I
+postprocessing: mixedwm38
+shapes: fixed
+
+# 🌌 stream parameters
+stream_size: single_task_100k
+num_validation_samples: null
+seed: 1
+
+priors:
+  cardinality: mild_long_tailed
+  class: uniform
+
+# ⚙️ parameter schedules
+drifts:
+  covariate: fixed_full
+  concept: fixed_full
+  prior: fixed

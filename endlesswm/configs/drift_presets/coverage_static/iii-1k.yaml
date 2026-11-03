@@ -1,0 +1,24 @@
+# ℹ️ meta information
+description: "3rd EWM distribution - more intra-class variability"
+
+# 🌳 tree topology
+stem: II
+branches: III
+postprocessing: continuous
+shapes: fixed
+
+# 🌌 stream parameters
+stream_size: single_task_1k
+seed: (1,3)
+
+priors:
+  cardinality: mild_long_tailed
+  class: uniform
+
+# ⚙️ parameter schedules
+drifts:
+  covariate: random_fraction
+  concept: random_fraction
+  prior: fixed
+
+fraction: (0.1,0.1,1.0)

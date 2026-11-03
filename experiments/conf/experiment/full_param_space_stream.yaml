@@ -1,0 +1,14 @@
+# @package _global_
+defaults:
+  - override /data: full_param_space_stream
+  - _self_
+
+epochs: 100
+
+experiment_name: full_param_space_stream
+comment: ${data.name}_${method.name}_${seed}
+
+hydra:
+  sweeper:
+    params:
+      method: finetuning
