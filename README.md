@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="docs/assets/header.png" alt="an overview of our proposed data generators" width="100%" />
-</p>
-
 <h1 align="center">
   ♾️🌐 EndlessWaferMaps ♾️🌐
 </h1>
@@ -23,12 +19,19 @@ labelled wafer test streams with controllable data drifts and signal-to-noise ra
   <a href="#-datasets-and-streams">📄 Data</a> •
   <a href="#-installation">📦 Installation</a> •
   <a href="#-experiments">⚗️ Experiments</a> •
-  <a href="#-notebooks-and-dashboards">📓 Notebooks</a>
+  <a href="#-notebooks-and-dashboards">📓 Notebooks</a> •
+  <a href="#-citation">📝 Citation</a>
+</p>
+
+<p align="center">
+  <img src="docs/assets/header.png" alt="an overview of our proposed data generators" width="100%" />
 </p>
 
 ---
 
 ## ℹ️ What is this?
+
+This is the official repository accompanying our **WACV 2027 (Evaluations & Datasets Track)** paper, *"Endless Wafer Maps: Labeled Wafer Test Streams with Controllable Data Drifts and Signal-to-noise Ratio"*, and its [Harvard Dataverse dataset publication](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi%3A10.7910%2FDVN%2FLDQQIW).
 
 EndlessWaferMaps is a synthetic wafer test benchmark consisting of multiple labelled streams and evaluation datasets sampled from four progressively more challenging data generators. Each sample includes a wafer map, multi-label annotations, semantic segmentation masks, separated background and pattern signals, and generative parameters to support controlled analyses.
 
